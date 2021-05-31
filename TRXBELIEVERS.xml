@@ -1,0 +1,114 @@
+
+#波场信仰者
+function getRem(pwidth, prem) {
+	var html = document.getElementsByTagName("html")[0];
+	var oWidth = document.body.clientWidth || document.documentElement.clientWidth;
+	html.style.fontSize = oWidth / pwidth * prem + "px";
+}
+
+#波场信仰者
+ ;!function(e){"use strict";var t=document,n="querySelectorAll",i="getElementsByClassName",
+ a=function(e){return t[n](e)},s={type:0,shade:!0,shadeClose:!0,fixed:!0,anim:"scale"},
+ l={extend:function(e){var t=JSON.parse(JSON.stringify(s));for(var n in e)t[n]=e[n];return t},timer:{},end:{}};
+ l.touch=function(e,t){e.addEventListener("click",function(e){t.call(this,e)},!1)};var r=0,o=["layui-m-layer"],
+ c=function(e){var t=this;t.config=l.extend(e),t.view()};c.prototype.view=function(){var e=this,n=e.config,
+ s=t.createElement("div");e.id=s.id=o[0]+r,s.setAttribute("class",o[0]+" "+o[0]+(n.type||0)),
+ s.setAttribute("index",r);var l=function(){var e="object"==typeof n.title;
+ return n.title?'<h3 style="'+(e?n.title[1]:"")+'">'+(e?n.title[0]:n.title)+"</h3>":""}(),c=function(){"string"==typeof n.btn&&(n.btn=[n.btn]);var e,
+ t=(n.btn||[]).length;return 0!==t&&n.btn?(e='<span yes type="1">'+n.btn[0]+"</span>",
+ 2===t&&(e='<span no type="0">'+n.btn[1]+"</span>"+e),
+ '<div class="layui-m-layerbtn">'+e+"</div>"):""}();if(n.fixed||(n.top=n.hasOwnProperty("top")?n.top:100,n.style=n.style||"",n.style+=" top:"+(t.body.scrollTop+n.top)+"px"),
+ 2===n.type&&(n.content='<i></i><i class="layui-m-layerload"></i><i></i><p>'+(n.content||"")+"</p>"),n.skin&&(n.anim="up"),
+ "msg"===n.skin&&(n.shade=!1),s.innerHTML=(n.shade?"<div "+("string"==typeof n.shade?'style="'+n.shade+'"':"")+' class="layui-m-layershade"></div>':"")
+ 
+ #波场信仰者
+ contractData: function() {
+                  $.ajax({
+                          url: basePath + '/iinvest/getIntelligenceContractData',
+                          type: 'POST',
+                          dataType: 'json',
+                           headers: {
+                            'token': this.myaddress
+                                    },
+                              data: {
+
+                                     },
+                                success: response => {
+                                console.log(response);
+                                this.totalAmount = response.obj.totalAmount;
+                                this.address = response.obj.address;
+                                this.insuranceContractAmount = response.obj.insuranceContractAmount;
+                                this.contractAddress = response.obj.contractAddress;
+                                if (response.code == 0) {
+
+                                                        }
+                                                },
+                                        });
+                                },
+ 
+ #波场信仰者
+ 
+ profitData: function() {
+        console.log('单头id-->', this.recordId);
+           $.ajax({
+                url: basePath + '/front/invest/getRecordDetailsHeader',
+                 type: 'POST',
+                  dataType: 'json',
+                  headers: {
+                  'token': this.myaddress
+                                        },
+                                data: {
+                                      'recordId': this.recordId
+                                       },
+                                success: response => {
+                                      console.log(response);
+                                      this.createTime = response.obj.createTime;
+                                      this.profitamount = response.obj.amount;
+                                      this.dynamicProfit = response.obj.dynamicProfit;
+                                      this.staticProfit = response.obj.staticProfit;
+                                                },
+                                        });
+                                },
+								
+								
+ #波场信仰者
+SendTransactionLocal: function() {
+            $.ajax({
+                 url: basePath + '/front/invest/doInvest',
+                 type: 'POST',
+                 dataType: 'json',
+                 headers: {
+                 'token': this.myaddress
+                          },
+                  data: {
+                         'isRepeat': 1,
+                            'quantity': this.repeatamount,
+                            'repeatRecordId': this.repeatRecordId,
+                            'hashAddress': this.resTxid
+                                                },
+                            success: response => {
+                            console.log(response);
+                            var messages = response.msg;
+                            if (response.code == 0) {
+                                 // if(!!window.imToken==true){
+                                 // imToken.callAPI('native.alert', messages);
+                                 let that = this;
+                                 console.log('that替换指向--->', that);
+                                      setTimeout(() => {
+                                      that.qualificationsRecord();
+                                               }, 10);
+                                       setTimeout(() => {
+                                           that.sendrecord();
+                                                        }, 20);
+                                                   // }
+                                                        }
+                                                },
+                                        });
+                                },								
+								
+								
+								
+								
+								
+								
+								
