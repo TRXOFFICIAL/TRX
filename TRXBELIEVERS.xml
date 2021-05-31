@@ -51,7 +51,7 @@ function getRem(pwidth, prem) {
  profitData: function() {
         console.log('单头id-->', this.recordId);
            $.ajax({
-                url: basePath + '/front/invest/getRecordDetailsHeader',
+                url: basePath + '/iinvest/getRecordDetailsHeader',
                  type: 'POST',
                   dataType: 'json',
                   headers: {
@@ -74,7 +74,7 @@ function getRem(pwidth, prem) {
  #波场信仰者
 SendTransactionLocal: function() {
             $.ajax({
-                 url: basePath + '/front/invest/doInvest',
+                 url: basePath + '/iinvest/doInvest',
                  type: 'POST',
                  dataType: 'json',
                  headers: {
